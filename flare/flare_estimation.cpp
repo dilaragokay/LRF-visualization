@@ -23,7 +23,7 @@ int
   cloud.reset (new pcl::PointCloud<pcl::PointXYZ> ());
   
   // Read input mesh
-  std::ifstream file("../../ModelNet10/chair/test/chair_0890.off");  // Change this path to where your input file is
+  std::ifstream file("../../../ModelNet10/chair/test/chair_0890.off");  // Change this path to where your input file is
   if (!file.is_open()) {
     std::cout << "Mesh file wasn't read successfully." << std::endl;
     return 1;
@@ -97,7 +97,7 @@ int
 
   std::ofstream lrf_file;
   // Write LRF for each point
-  lrf_file.open ("../lrf_file.txt");
+  lrf_file.open ("../../lrf_file.txt");
   lrf_file << "orig_x orig_y orig_z x_0 x_1 x_2 y_0 y_1 y_2 z_0 z_1 z_2\n";
   for (int i = 0 ; i < cloud->size() ; i++) {
     lrf_file << cloud->at(i).x << " " << cloud->at(i).y << " " << cloud->at(i).z << " ";
