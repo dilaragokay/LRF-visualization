@@ -4,7 +4,8 @@
 ![Example output](https://github.com/dilaragokay/LRF-visualization/blob/master/img/example.png)
 
 ### Requirements
-Install [PCL](https://pointclouds.org/downloads/) (for step 1), [Open3D](http://www.open3d.org/) (for step 2), and [NumPy](https://numpy.org/install/) (for step 2)
+* Install [PCL](https://pointclouds.org/downloads/) (for step 1), [Open3D](http://www.open3d.org/) (for step 2), and [NumPy](https://numpy.org/install/) (for step 2)
+* Change the relative path of your input file in [visualize_lrf.py](https://github.com/dilaragokay/LRF-visualization/blob/master/visualize_lrf.py#L5) and [flare/flare_estimation.cpp](https://github.com/dilaragokay/LRF-visualization/blob/master/flare/flare_estimation.cpp#L26)
 
 ### 1. Compute local reference frames using [FLARE](http://www.vision.deis.unibo.it/research/78-cvlab/82-lrf)
 ```
