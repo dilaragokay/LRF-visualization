@@ -6,9 +6,9 @@ if __name__ == "__main__":
 	geometries = [mesh]
 
 	file1 = open('lrf_file.txt', 'r') 
-	lines = file1.readlines() 
+	lines = file1.readlines()
 
-	selected_points = [3,57, 88, 111, 199, 895, 908, 1426, 1451, 1476, 1571, 1591]  # randomly selected points
+	selected_points = np.linspace(50,1650,50).astype(int)  # randomly selected points
 
 	for i in selected_points:
 		lrf = lines[i].split(" ")
@@ -18,7 +18,7 @@ if __name__ == "__main__":
 		vecs[1] = [float(lrf[6]), float(lrf[7]), float(lrf[8])]  # y
 		vecs[2] = [float(lrf[9]), float(lrf[10]), float(lrf[11][:-1])] # z - don't take last char since it is \n
 		
-		frame = o3d.geometry.TriangleMesh.create_coordinate_frame(size = 5)
+		frame = o3d.geometry.TriangleMesh.create_coordinate_frame(size = 3)
 		rotation = vecs.transpose()
 		frame.rotate(rotation, [0,0,0])
 		frame.translate(orig)

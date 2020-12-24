@@ -6,6 +6,7 @@
 #include <pcl/features/flare.h>
 #include <pcl/point_cloud.h>
 #include <pcl/io/ply_io.h>
+#include <pcl/common/common.h>
 
 using KdTreePtr = pcl::search::KdTree<pcl::PointXYZ>::Ptr;
 using PointCloudPtr = pcl::PointCloud<pcl::PointXYZ>::Ptr;
@@ -68,7 +69,15 @@ int
   pcl::PointCloud<pcl::Normal>::Ptr normals (new pcl::PointCloud<pcl::Normal> ());
   pcl::PointCloud<pcl::ReferenceFrame> mesh_LRF;
 
-  const float mesh_res = 0.005f;
+  pcl::PointXYZ minPt, maxPt;
+  pcl::getMinMax3D (*cloud, minPt, maxPt);
+  const float xRange = maxPt.x - minPt.x;
+  const float yRange = maxPt.y - minPt.y;
+  const float zRange = maxPt.z - minPt.z;
+
+  // The following scales 0.005f by how much the range of this mesh differs than the range of https://github.com/PointCloudLibrary/pcl/blob/master/test/bun0.pcd
+  // For computation details, see https://github.com/PointCloudLibrary/pcl/blob/master/test/features/test_flare_estimation.cpp
+  const float mesh_res = 0.005f * (std::max(std::max(xRange, yRange), zRange) / 0.15);
 
   // Compute normals
   pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal> ne;
