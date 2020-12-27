@@ -21,5 +21,11 @@ cd ../..
 python visualize_lrf.py
 ```
 
+### Optional: Render LRF
+This part is heavily inspired by [Mitsuba2PointCloudRenderer](https://github.com/tolgabirdal/Mitsuba2PointCloudRenderer). Make sure that [these dependencies](https://github.com/tolgabirdal/Mitsuba2PointCloudRenderer#dependencies) are satisfied and Step 1 is completed.
+```
+python3.6 render_lrf.py
+```
+
 ### References
 * A. Petrelli, L. Di Stefano, "A repeatable and efficient canonical reference for surface matching", 3DimPVT, 2012. [[PDF](http://www.vision.deis.unibo.it/LRF/LRF_repeatability_3DimPvt2012.pdf)]
