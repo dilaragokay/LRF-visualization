@@ -21,7 +21,7 @@ cd ../..
 python visualize_lrf.py
 ```
 
-### Optional: Render LRF
+### Render LRF
 This part is heavily inspired by [Mitsuba2PointCloudRenderer](https://github.com/tolgabirdal/Mitsuba2PointCloudRenderer). Make sure that [these dependencies](https://github.com/tolgabirdal/Mitsuba2PointCloudRenderer#dependencies) are satisfied and Step 1 is completed.
 ```
 python3.6 render_lrf.py
